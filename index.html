@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Party Planner</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+padding:0;
+background:#f5f5f0;
+}
+
+.banner{
+background:#00693E;
+color:#fff;
+padding:24px 40px;
+font-size:28px;
+font-weight:bold;
+letter-spacing:1px;
+}
+
+.content{
+padding:30px 40px;
+}
+
+table{
+border-collapse:collapse;
+width:1100px;
+}
+
+th,td{
+border:1px solid #aaa;
+padding:10px;
+}
+
+th{
+background:#12312B;
+color:#fff;
+}
+
+.blue{
+background:#d4e8d0;
+}
+
+.grey{
+background:#e8e8e0;
+}
+
+.yellow{
+background:#c8e6b8;
+font-weight:bold;
+color:#12312B;
+}
+
+input{
+width:70px;
+border:1px solid #999;
+padding:4px;
+border-radius:3px;
+}
+
+button{
+margin-top:20px;
+padding:10px 20px;
+font-size:16px;
+background:#00693E;
+color:#fff;
+border:none;
+border-radius:4px;
+cursor:pointer;
+font-weight:bold;
+}
+
+button:hover{
+background:#12312B;
+}
+
+label{
+font-weight:bold;
+color:#12312B;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="banner">Party Planner</div>
+
+<div class="content">
+
+<table>
+
+<tr>
+<th>Item</th>
+<th>% of People</th>
+<th>People</th>
+<th>Drinks / Servings</th>
+<th>Assumption</th>
+<th>Result</th>
+</tr>
+
+<tr>
+<td>Spritz</td>
+<td class="blue"><input id="spritzPercent" value="33"></td>
+<td class="yellow" id="spritzPeople"></td>
+<td class="yellow" id="spritzDrinks"></td>
+<td class="grey">
+Prosecco/ bottle
+<input id="spritzPerBottle" value="5">
+</td>
+<td class="yellow" id="proseccoBottles"></td>
+</tr>
+
+<tr>
+<td>Margaritas</td>
+<td class="blue"><input id="margPercent" value="33"></td>
+<td class="yellow" id="margPeople"></td>
+<td class="yellow" id="margDrinks"></td>
+<td class="grey">
+Margaritas / tequila bottle
+<input id="margsPerBottle" value="16">
+</td>
+<td class="yellow" id="tequilaBottles"></td>
+</tr>
+
+<tr>
+<td>Still Water</td>
+<td class="blue"><input id="waterPercent" value="70"></td>
+<td class="yellow" id="waterPeople"></td>
+<td>-</td>
+<td class="grey">
+People / bottle
+<input id="waterPerBottle" value="3">
+</td>
+<td class="yellow" id="waterBottles"></td>
+</tr>
+
+<tr>
+<td>Sparkling Water</td>
+<td class="blue"><input id="sparklingPercent" value="50"></td>
+<td class="yellow" id="sparklingPeople"></td>
+<td>-</td>
+<td class="grey">
+People / bottle
+<input id="sparklingPerBottle" value="3">
+</td>
+<td class="yellow" id="sparklingBottles"></td>
+</tr>
+
+<tr>
+<td>Tortilla Chips</td>
+<td class="blue"><input id="chipsPercent" value="70"></td>
+<td class="yellow" id="chipsPeople"></td>
+<td>-</td>
+<td class="grey">
+People / bag
+<input id="chipsPerBag" value="4">
+</td>
+<td class="yellow" id="chipBags"></td>
+</tr>
+
+<tr>
+<td>Hummus</td>
+<td class="blue"><input id="hummusPercent" value="60"></td>
+<td class="yellow" id="hummusPeople"></td>
+<td>-</td>
+<td class="grey">
+People / tub
+<input id="hummusPerTub" value="6">
+</td>
+<td class="yellow" id="hummusTubs"></td>
+</tr>
+
+<tr>
+<td>Cheese</td>
+<td class="blue"><input id="cheesePercent" value="60"></td>
+<td class="yellow" id="cheesePeople"></td>
+<td>-</td>
+<td class="grey">
+People / board
+<input id="cheesePerBoard" value="6">
+</td>
+<td class="yellow" id="cheeseBoards"></td>
+</tr>
+
+</table>
+
+<br>
+
+<label>Total People:</label>
+<input id="totalPeople" value="20">
+
+<label>Drinks per Person:</label>
+<input id="drinksPerPerson" value="2">
+
+<br><br>
+
+<button onclick="calculate()">Calculate</button>
+
+</div>
+
+<script>
+
+function calculate(){
+
+let totalPeople = parseFloat(document.getElementById("totalPeople").value)
+let drinksPerPerson = parseFloat(document.getElementById("drinksPerPerson").value)
+
+function percent(id){
+return parseFloat(document.getElementById(id).value)/100
+}
+
+function val(id){
+return parseFloat(document.getElementById(id).value)
+}
+
+let spritzPeople = Math.round(totalPeople * percent("spritzPercent"))
+let margPeople = Math.round(totalPeople * percent("margPercent"))
+let waterPeople = Math.round(totalPeople * percent("waterPercent"))
+let sparklingPeople = Math.round(totalPeople * percent("sparklingPercent"))
+let chipsPeople = Math.round(totalPeople * percent("chipsPercent"))
+let hummusPeople = Math.round(totalPeople * percent("hummusPercent"))
+let cheesePeople = Math.round(totalPeople * percent("cheesePercent"))
+
+let spritzDrinks = spritzPeople * drinksPerPerson
+let margDrinks = margPeople * drinksPerPerson
+
+document.getElementById("spritzPeople").innerText = spritzPeople
+document.getElementById("spritzDrinks").innerText = spritzDrinks
+document.getElementById("margPeople").innerText = margPeople
+document.getElementById("margDrinks").innerText = margDrinks
+
+document.getElementById("waterPeople").innerText = waterPeople
+document.getElementById("sparklingPeople").innerText = sparklingPeople
+document.getElementById("chipsPeople").innerText = chipsPeople
+document.getElementById("hummusPeople").innerText = hummusPeople
+document.getElementById("cheesePeople").innerText = cheesePeople
+
+document.getElementById("proseccoBottles").innerText =
+Math.ceil(spritzDrinks / val("spritzPerBottle"))
+
+document.getElementById("tequilaBottles").innerText =
+Math.ceil(margDrinks / val("margsPerBottle"))
+
+document.getElementById("waterBottles").innerText =
+Math.ceil(waterPeople / val("waterPerBottle"))
+
+document.getElementById("sparklingBottles").innerText =
+Math.ceil(sparklingPeople / val("sparklingPerBottle"))
+
+document.getElementById("chipBags").innerText =
+Math.ceil(chipsPeople / val("chipsPerBag"))
+
+document.getElementById("hummusTubs").innerText =
+Math.ceil(hummusPeople / val("hummusPerTub"))
+
+document.getElementById("cheeseBoards").innerText =
+Math.ceil(cheesePeople / val("cheesePerBoard"))
+
+}
+
+calculate()
+
+</script>
+
+</body>
+</html>
