@@ -132,6 +132,26 @@ font-size:15px;
 border-bottom:none;
 }
 
+.shopping-list li label{
+display:inline-flex;
+align-items:center;
+font-weight:normal;
+color:inherit;
+cursor:pointer;
+}
+
+.shopping-list li input[type="checkbox"]{
+width:auto;
+margin-right:8px;
+cursor:pointer;
+accent-color:#00693E;
+}
+
+.shopping-list li.checked label{
+text-decoration:line-through;
+color:#999;
+}
+
 .shopping-list .qty{
 font-weight:bold;
 color:#00693E;
@@ -511,38 +531,53 @@ Recipe per drink: 2 oz vodka, 1 oz brewed yerba mate (chilled), 0.75 oz simple s
 <div class="shopping-list">
 <ul>
 <li class="section-label">Aperol Spritz</li>
-<li><span class="qty" id="shopProsecco"></span> bottles Prosecco</li>
-<li><span class="qty" id="shopAperol"></span> bottles Aperol</li>
-<li><span class="qty" id="shopSpritzSoda"></span> bottles soda water (1L)</li>
-<li><span class="qty" id="shopOranges"></span> oranges</li>
+<li><label><input type="checkbox" data-item="prosecco"><span class="qty" id="shopProsecco"></span> bottles Prosecco</label></li>
+<li><label><input type="checkbox" data-item="aperol"><span class="qty" id="shopAperol"></span> bottles Aperol</label></li>
+<li><label><input type="checkbox" data-item="spritzSoda"><span class="qty" id="shopSpritzSoda"></span> bottles soda water (1L)</label></li>
+<li><label><input type="checkbox" data-item="oranges"><span class="qty" id="shopOranges"></span> oranges</label></li>
 
 <li class="section-label">Margaritas</li>
-<li><span class="qty" id="shopTequila"></span> bottles tequila</li>
-<li><span class="qty" id="shopTripleSec"></span> bottles Cointreau / triple sec</li>
-<li><span class="qty" id="shopLimes"></span> limes</li>
-<li><span class="qty" id="shopSalt"></span> container coarse salt</li>
+<li><label><input type="checkbox" data-item="tequila"><span class="qty" id="shopTequila"></span> bottles tequila</label></li>
+<li><label><input type="checkbox" data-item="tripleSec"><span class="qty" id="shopTripleSec"></span> bottles Cointreau / triple sec</label></li>
+<li><label><input type="checkbox" data-item="limes"><span class="qty" id="shopLimes"></span> limes</label></li>
+<li><label><input type="checkbox" data-item="salt"><span class="qty" id="shopSalt"></span> container coarse salt</label></li>
 
 <li class="section-label">Mate Martini</li>
-<li><span class="qty" id="shopVodka"></span> bottles vodka</li>
-<li><span class="qty" id="shopMate"></span> boxes yerba mate</li>
-<li><span class="qty" id="shopSyrup"></span> bottles simple syrup</li>
-<li><span class="qty" id="shopLemons"></span> lemons</li>
+<li><label><input type="checkbox" data-item="vodka"><span class="qty" id="shopVodka"></span> bottles vodka</label></li>
+<li><label><input type="checkbox" data-item="mate"><span class="qty" id="shopMate"></span> boxes yerba mate</label></li>
+<li><label><input type="checkbox" data-item="syrup"><span class="qty" id="shopSyrup"></span> bottles simple syrup</label></li>
+<li><label><input type="checkbox" data-item="lemons"><span class="qty" id="shopLemons"></span> lemons</label></li>
 
 <li class="section-label">Beer</li>
-<li><span class="qty" id="shopBeer"></span> six-packs</li>
+<li><label><input type="checkbox" data-item="beer"><span class="qty" id="shopBeer"></span> six-packs</label></li>
 
 <li class="section-label">Wine</li>
-<li><span class="qty" id="shopRedWine"></span> bottles red wine</li>
-<li><span class="qty" id="shopWhiteWine"></span> bottles white wine</li>
+<li><label><input type="checkbox" data-item="redWine"><span class="qty" id="shopRedWine"></span> bottles red wine</label></li>
+<li><label><input type="checkbox" data-item="whiteWine"><span class="qty" id="shopWhiteWine"></span> bottles white wine</label></li>
 
 <li class="section-label">Water</li>
-<li><span class="qty" id="shopStillWater"></span> bottles still water (1.5L)</li>
-<li><span class="qty" id="shopSparklingWater"></span> bottles sparkling water (1L)</li>
+<li><label><input type="checkbox" data-item="stillWater"><span class="qty" id="shopStillWater"></span> bottles still water (1.5L)</label></li>
+<li><label><input type="checkbox" data-item="sparklingWater"><span class="qty" id="shopSparklingWater"></span> bottles sparkling water (1L)</label></li>
 
 <li class="section-label">Food</li>
-<li><span class="qty" id="shopChips"></span> bags tortilla chips</li>
-<li><span class="qty" id="shopHummus"></span> tubs hummus</li>
-<li><span class="qty" id="shopCheese"></span> cheese boards</li>
+<li><label><input type="checkbox" data-item="chips"><span class="qty" id="shopChips"></span> bags tortilla chips</label></li>
+<li><label><input type="checkbox" data-item="hummus"><span class="qty" id="shopHummus"></span> tubs hummus</label></li>
+<li><label><input type="checkbox" data-item="cheese"><span class="qty" id="shopCheese"></span> cheese boards</label></li>
+
+<li class="section-label">Other</li>
+<li><label><input type="checkbox" data-item="ice"><span class="qty" id="shopIce"></span> bags of ice</label></li>
+</ul>
+</div>
+
+<!-- To-Do List -->
+<h3>To-Do List</h3>
+<div class="shopping-list todo-list">
+<ul>
+<li><label><input type="checkbox" data-todo="westernunion"> Go to Western Union to get money — closest to Scalabrini Ortiz 1650: <strong>Av. Scalabrini Ortiz 176, Villa Crespo (C1414ZAA)</strong></label></li>
+<li><label><input type="checkbox" data-todo="liquorstore"> Go to liquor store for liquor</label></li>
+<li><label><input type="checkbox" data-todo="grocery"> Go to grocery store for chips & salsas</label></li>
+<li><label><input type="checkbox" data-todo="juicer"> Get a juice presser</label></li>
+<li><label><input type="checkbox" data-todo="shaker"> Get a cocktail shaker</label></li>
 </ul>
 </div>
 
@@ -700,9 +735,53 @@ document.getElementById("shopChips").innerText = chipBags
 document.getElementById("shopHummus").innerText = hummusTubs
 document.getElementById("shopCheese").innerText = cheeseBoards
 
+// Ice
+let iceBags = Math.ceil(totalPeople / 5)
+document.getElementById("shopIce").innerText = iceBags
+
 }
 
 calculate()
+
+// Checkbox persistence
+function loadChecked(){
+let saved = JSON.parse(localStorage.getItem("partyChecked") || "{}")
+document.querySelectorAll('.shopping-list input[type="checkbox"]').forEach(cb => {
+let key = cb.getAttribute("data-item")
+if(saved[key]){ cb.checked = true; cb.closest("li").classList.add("checked") }
+})
+}
+
+document.querySelector('.shopping-list').addEventListener("change", function(e){
+if(e.target.type !== "checkbox") return
+let li = e.target.closest("li")
+li.classList.toggle("checked", e.target.checked)
+let saved = JSON.parse(localStorage.getItem("partyChecked") || "{}")
+saved[e.target.getAttribute("data-item")] = e.target.checked
+localStorage.setItem("partyChecked", JSON.stringify(saved))
+})
+
+loadChecked()
+
+// Todo list persistence
+function loadTodos(){
+let saved = JSON.parse(localStorage.getItem("partyTodos") || "{}")
+document.querySelectorAll('.todo-list input[type="checkbox"]').forEach(cb => {
+let key = cb.getAttribute("data-todo")
+if(saved[key]){ cb.checked = true; cb.closest("li").classList.add("checked") }
+})
+}
+
+document.querySelector('.todo-list').addEventListener("change", function(e){
+if(e.target.type !== "checkbox") return
+let li = e.target.closest("li")
+li.classList.toggle("checked", e.target.checked)
+let saved = JSON.parse(localStorage.getItem("partyTodos") || "{}")
+saved[e.target.getAttribute("data-todo")] = e.target.checked
+localStorage.setItem("partyTodos", JSON.stringify(saved))
+})
+
+loadTodos()
 
 </script>
 
